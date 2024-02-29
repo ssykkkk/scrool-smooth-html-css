@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.head-wrap {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+label {
+  width: 42px;
+  display: grid;
+  cursor: pointer;
+  z-index: 1;
+}
+label > div {
+  margin-bottom: 8px;
+  margin-top: 0;
+  width: 42px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: rgb(25, 118, 210);
+}
+label:hover > div:first-child {
+  transform: translate(0, -2px);
+}
+label:hover > div:last-child {
+  transform: translate(0, 2px);
+}
+
+input[type=checkbox]:checked + label > div:first-child {
+  animation-name: rotateDown;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+input[type=checkbox]:checked + label > div:nth-child(2) {
+  animation-name: scale;
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+}
+input[type=checkbox]:checked + label > div:last-child {
+  animation-name: rotateUp;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+input[type=checkbox]:not(:checked) + label > div:first-child {
+  animation-name: reverserotateDown;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+input[type=checkbox]:not(:checked) + label > div:nth-child(2) {
+  animation-name: reversescale;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+input[type=checkbox]:not(:checked) + label > div:last-child {
+  animation-name: reverserotateUp;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes rotateDown {
+  0% {
+    transform-origin: left top;
+  }
+  100% {
+    transform: translate(7px, 0) rotate(45deg);
+    transform-origin: left top;
+  }
+}
+@keyframes reverserotateDown {
+  0% {
+    transform: translate(7px, 0) rotate(45deg);
+    transform-origin: left top;
+  }
+  100% {
+    transform-origin: left top;
+  }
+}
+@keyframes rotateUp {
+  0% {
+    transform-origin: right bottom;
+  }
+  100% {
+    transform: translate(-6px, -25px) rotate(-45deg);
+    transform-origin: right bottom;
+  }
+}
+@keyframes reverserotateUp {
+  0% {
+    transform: translate(-6px, -25px) rotate(-45deg);
+    transform-origin: right bottom;
+  }
+  100% {
+    transform-origin: right bottom;
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes reversescale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+input[type=checkbox]:not(:checked) + label + .menu {
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+input[type=checkbox]:not(:checked) + label + .menu h2 {
+  margin-left: 50px;
+}
+input[type=checkbox]:not(:checked) + label + .menu li {
+  margin-left: 30px;
+}
+
+input[type=checkbox]:checked + label + .menu {
+  width: 250px;
+  opacity: 1;
+}
+
+.menu {
+  background-color: white;
+  border-right: 5px solid rgba(25, 118, 210, 0.3);
+  height: 100vh;
+  top: -20px;
+  left: -20px;
+  position: absolute;
+  z-index: -1;
+  transition: opacity 1s, width 0.8s;
+}
+.menu h2 {
+  line-height: 30px;
+  font-size: 30px;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  cursor: default;
+  transition: 1s;
+}
+.menu ul {
+  list-style: none;
+}
+.menu ul > li {
+  transition: background-color 0.3s, margin 1s;
+}
+.menu ul > li > a {
+  padding: 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.menu ul > li > a > img {
+  width: 30px;
+  height: 30px;
+}
+.menu ul > li > a > span {
+  font-size: 18px;
+  color: black;
+}
+.menu ul > li:hover {
+  background-color: rgba(25, 118, 210, 0.2);
+}
+
+.content .head-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.content .head-content img {
+  width: 50px;
+  height: 50px;
+}
+.content .head-content h2 {
+  font-size: 40px;
+}
+.content p:last-child {
+  margin-bottom: 100px;
+}/*# sourceMappingURL=style.css.map */
